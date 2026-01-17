@@ -37,12 +37,12 @@ namespace Premium
 
                 // шрифты
                 XFont fontNormal = new XFont("Arial", 12);
-                XFont fontLarge = new XFont("Arial", 20); 
+                XFont fontLarge = new XFont("Arial", 20);
                 XFont fontTitle = new XFont("Times New Roman", 24);
 
                 // Пишем текст на странице
                 gfx.DrawString("Приказ № 12 " +
-                    "\nО лишении премии работника ",
+                    "О лишении премии работника ",
                     fontTitle,
                     XBrushes.Black,
                     new XPoint(50, 50));
@@ -52,14 +52,19 @@ namespace Premium
                     XBrushes.Black,
                     new XPoint(50, 70));
 
-                gfx.DrawString("В связи с ",
+                // Получаем текст из TextBox
+                string userText = textBox1.Text;
+
+                // Добавляем перенос строки если текст длинный
+                string reasonText = "В связи с " + userText;
+
+                gfx.DrawString(reasonText,
                     fontNormal,
                     XBrushes.Black,
                     new XPoint(50, 100));
 
-               
                 gfx.DrawString("приказываю:",
-                    fontNormal, 
+                    fontNormal,
                     XBrushes.Black,
                     new XPoint(50, 130));
 
